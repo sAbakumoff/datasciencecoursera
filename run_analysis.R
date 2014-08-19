@@ -37,4 +37,5 @@ build.data <- function(data.set.path, data.labels.path, data.subjects.path){
 test <- build.data('test/X_test.txt', 'test/y_test.txt', 'test/subject_test.txt')
 train <- build.data('train/X_train.txt', 'train/y_train.txt', 'train/subject_train.txt')
 all.data <- rbind(test, train)
-all.data.grouped<-aggregate(. ~ Activity + Subject, all.data, mean) 
+all.data.grouped<-aggregate(. ~ Activity + Subject, all.data, mean)
+write.table(all.data.grouped, file="summary.txt", row.names=FALSE)
